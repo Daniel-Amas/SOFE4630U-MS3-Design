@@ -1,0 +1,54 @@
+# Ignore virtual environments
+venv/
+env/
+*/venv/
+*/env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore package manager files
+pip-log.txt
+pip-delete-this-directory.txt
+poetry.lock
+
+# Ignore distribution and build directories
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore coverage reports
+.coverage
+htmlcov/
+*.cover
+*.coverage
+*.coveragerc
+.nosetests
+
+# Ignore logs and local configs
+*.log
+*.out
+*.err
+*.DS_Store
+
+# Ignore environment variables and secrets
+.env
+*.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+*.json
+config/secrets.toml
+config/secrets.yaml
+*.pem
+*.key
