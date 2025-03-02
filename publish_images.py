@@ -11,8 +11,8 @@ if not json_key_files:
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_key_files[0]
 
 # 2. Define your GCP project and the Pub/Sub topic to publish images.
-PROJECT_ID = "sofe4630u-ms3-design"    # e.g., "sofe4630u-ms3-design"
-TOPIC_ID = "images_topic"             # You must have created this topic beforehand
+PROJECT_ID = "sofe4630u-ms3-design"    
+TOPIC_ID = "images_topic"             
 
 # 3. Point this to the folder containing your images, e.g., "Dataset_Occluded_Pedestrian"
 IMAGE_FOLDER = "Dataset_Occluded_Pedestrian"
@@ -44,23 +44,14 @@ def publish_images_to_topic():
         image_b64 = base64.b64encode(image_bytes).decode("utf-8")
 
         # Build message data
-        # Option A: Store everything in the data field as JSON
-        payload_dict = {
-            "imageName": image_name,
-            "imageData": image_b64,
-        }
-        message_data = json.dumps(payload_dict).encode("utf-8")
-
         # Option B (alternative): Just send the raw base64 data and use attributes for the filename
-        # message_data = image_b64.encode("utf-8")
+        message_data = image_b64.encode("utf-8")
 
         # Publish message
-        # If you use Option A, you can skip attributes, or if you use Option B, pass image_name as an attribute:
         future = publisher.publish(
             topic_path,
             data=message_data,
-            # For Option A, we could add no attributes or just a small attribute
-            # For Option B, you might do: filename=image_name
+            filename=image_name
         )
 
         print(f"Publishing image: {image_name}")
