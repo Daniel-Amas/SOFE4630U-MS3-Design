@@ -44,7 +44,7 @@ def publish_images_to_topic():
         image_b64 = base64.b64encode(image_bytes).decode("utf-8")
 
         # Build message data
-        # Option B (alternative): Just send the raw base64 data and use attributes for the filename
+        # Send the raw base64 data and use attributes for the filename
         message_data = image_b64.encode("utf-8")
 
         # Publish message

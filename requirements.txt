@@ -1,0 +1,7 @@
+ultralytics==8.1.15
+opencv-python==4.6.0.66
+torch==2.0.1
+torchvision==0.15.2
+timm==0.6.12
+transformers==4.30.0
+apache-beam[gcp]==2.48.0
